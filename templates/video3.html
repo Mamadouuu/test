@@ -1,0 +1,127 @@
+{% extends 'general.html' %}
+
+
+{%block content%}
+    <div class="well text-center">
+        <h1>LISTE DES ETUDIANTS</h1>
+    </div>
+    <div class="container">
+        
+        <div class="row">
+            <div class="col md-12">
+                <h4> Liste étudiant <button type="button" class="btn btn-success pull-right " data-toggle="modal" data-target="#mymodal">Ajouter un apprenant</button> </h4>
+                 <table class="table table-striped">
+                    <tr>
+                        <th>serial</th>
+                        <th>name</th>
+                        <th>email</th>
+                        <th>phon</th>
+                        <th>action</th>
+                    </tr>
+                    <tr>
+                        <td>01</td>
+                        <td>Mamadou</td>
+                        <td>mamadoutive@yahoo.fr</td>
+                        <td>777886847</td>
+                        <td>
+                            <a href="" class="btn btn-warning btn-xs" data-toggle="modal" data-target="#modaledit">edit</a>
+                            <a href="" class="btn btn-danger"btn-xs onclick="return confirm('etes vous sur de vouloire supprimer ?')" > supprimer</a>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        
+        <div id="mymodal" class="modal fade" role="dialog">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+
+                        <h4 class="modal-title"> SVP remplissez les champs </h4>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+
+                        
+                    </div>
+                    <div class="modal-body">
+                        <form action="" method="POST">
+                            <div class="form-group">
+                                <label> Name:</label>
+                                <input type="text" class="form-control" name="name" required="1">
+                            </div>
+                            <div class="form-group">
+                                    <label> email:</label>
+                                    <input type="text" class="form-control" name="name" required="1">
+                            </div>
+                            <div class="form-group">
+                                    <label> phon:</label>
+                                    <input type="text" class="form-control" name="name" required="1">
+                            </div>
+
+                            <div class="form-group">
+                                    <button class="btn btn-primary" type="submit">Insert Data</button>
+                            </div>
+                        </form>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">close</button>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+
+
+
+
+        <div id="modaledit" class="modal fade" role="dialog">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+    
+                            <h4 class="modal-title"> SVP editer les champs </h4>
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+    
+                            
+                        </div>
+                        <div class="modal-body">
+                            <form action="" method="POST">
+
+                                    <div class="form-group">
+                                            <label> Prenom:</label>
+                                            <input type="text" class="form-control" name="name" value="prenom">
+                                        </div>
+                                <div class="form-group">
+                                    <label> Name:</label>
+                                    <input type="text" class="form-control" name="name" value="nom">
+                                </div>
+                                <div class="form-group">
+                                        <label> email:</label>
+                                        <input type="text" class="form-control" name="name" value="Ex: name@hotmail.com">
+                                </div>
+                                <div class="form-group">
+                                        <label> phon:</label>
+                                        <input type="text" class="form-control" name="name" value="77 777 77 77">
+                                </div>
+    
+                                <div class="form-group">
+                                        <button class="btn btn-primary" type="submit">editer</button>
+                                </div>
+                            </form>
+                        </div>
+    
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">fermer</button>
+                        </div>
+    
+                    </div>
+                </div>
+    
+            </div>
+
+
+
+    </div>
+{% endblock content %}

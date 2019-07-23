@@ -1,0 +1,124 @@
+
+<link rel="stylesheet" href="{{url_for('static', filename='css/menu.css')}}">
+
+
+{%extends 'general.html'%}
+
+{% block content %}
+
+<form action = "http://localhost:5000/result" method = "POST">
+
+    <div class="form">
+        <!-- <form action="formulaire.py" method="POST"> -->
+            <h1 class="s1">Formulaire d'inscription</h1>
+
+
+        <div class="s2">
+            <FIELDSET class="formulaire" STYLE="background: #FFFFDD ;">
+                <LEGEND STYLE="background: #FFFF88 ;"><B>Etudiant</B></LEGEND>
+                
+                <CENTER><TABLE BORDER="0" CELLSPACING="0" CELLPADDING="5" WIDTH="95%">
+                
+                    <tr>
+                        <TD WIDTH="20%"><B>Civilité</B></td>
+                        <TD WIDTH="70%">
+                            <INPUT TYPE=RADIO NAME=civilite VALUE="Mademoiselle">Mademoiselle
+                            <INPUT TYPE=RADIO NAME=civilite VALUE="Madame" CHECKED>Madame
+                            <INPUT TYPE=RADIO NAME=civilite VALUE="Monsieur">Monsieur
+                        </td>
+                    </TR>
+                    <TD><B>Prénom</B></td>
+                    <TD>	<INPUT TYPE=TEXT NAME=nom SIZE=25 MAXLENGTH=40></td>
+
+                    <tr>
+                        <TD><B>Nom</B></td>
+                        <TD><INPUT TYPE=TEXT NAME=nom SIZE=14 MAXLENGTH=20></td>
+
+                    </tr>
+
+                    <tr>
+                            <TD><B>CIN</B></td>
+                            <TD><INPUT TYPE=TEXT NAME=cin SIZE=14 MAXLENGTH=20></td>
+            
+                    </tr>
+
+
+                    <tr>
+                        <TD><B>Adresse</B></td>
+                        <TD>	<TEXTAREA NAME=adresse COLS=50 ROWS=2 WRAP=PHYSICAL>Région/ Ville/ Departement/ Villa</TEXTAREA></td>
+                    </tr>
+                    <!-- <TR>
+                    <TD><B>No postal / Localité</B></td>
+                    <TD>	<INPUT TYPE=TEXT NAME=no_postal Size=5 MAXLENGTH=4>
+                        <INPUT TYPE=TEXT NAME=localite SIZE=20 MAXLENGTH=80 VALUE="Lausanne">
+                    </td>-->
+                    <TR> 
+                        <TD><B>Pays</B></td>
+                        <TD><SELECT NAME=pays>
+                                <option>Mali</option>
+                                <OPTION>France
+                                <OPTION>Italie
+                                <option >Suisse</option>
+                                <OPTION SELECTED>Sénégal
+                            </SELECT>
+                        </td>
+                    </TR>
+                    <tr>
+                        <td><b>mail</b></td>
+                        <td> <input type="text" name="mail" size="14" maxlength="20"> </td>
+                        
+                    </tr>
+
+                    <tr>
+                        <td><b>numéro téléphone</b></td>
+                        <td><input type="text" name="nume" size="20" maxlength="20" ></td>
+                    </tr>
+
+                
+                    <!-- NIVEAU -->
+
+                    <TR>
+                        <TD><B>Niveau</B></td>
+                        <TD><INPUT TYPE=RADIO NAME=Niveau VALUE="Licence" CHECKED>Licence 
+                            <INPUT TYPE=RADIO NAME=Niveau VALUE="Master" >Master     
+                            <INPUT TYPE=RADIO NAME=Niveau VALUE="Doctorat">Doctorat     
+                        </td>
+                    </TR>
+
+
+                    
+                    <TD><B>années</B></td>
+                    <TD>	<SELECT NAME=Années SIZE=5 MULTIPLE>
+                                <OPTION SELECTED>Premiére année Licence
+                                <OPTION> Deuxiéme année Licence
+                                <OPTION>Troisiéme année Licence
+                                <OPTION> Premiére année Master
+                                <option> Deuxiéme année Master
+                                <option> Premiére année Doctorat
+                                <option> Deuxiéme année Doctorat
+                                <OPTION SELECTED>Troisiéme année Doctorat
+                            </SELECT>
+                    </td>
+                    </TABLE>
+                </CENTER>
+                
+            </FIELDSET>
+                
+                <CENTER>
+                    <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="10" WIDTH="95%">
+                        <TR><TH>
+                            <INPUT TYPE="submit" VALUE="Soumettre formulaire">   
+                            <INPUT TYPE=reset VALUE="Annuler">
+                        </TR></TH>
+                    </TABLE>
+                </CENTER>
+        </div>
+    </div> 
+
+</form>
+    <!-- <script src="../js/cours.js"></script> -->
+
+{% endblock content %}
+
+    
+

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>General</title>
+<!--         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+ -->    <link rel="stylesheet" href="{{url_for('static', filename='css/bootstrap-4.2.1-dist/css/bootstrap.min.css')}}">
+
+        <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/menu.css')}}">
+        <!-- <link rel = "stylesheet" href = "https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" intégrité = "SHA384-MCw98 / SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin = "anonymous" > -->
+       
+                <!-- Mettre une photo sur icon -->
+
+        <link rel="shortcut icon" href="{{url_for('static', filename='css/sonatel.gif')}}"> 
+    </head>
+
+
+    <body>
+
+    <div class="header">
+        <img class="h1" src="{{url_for('static', filename='css/sonatel.gif')}}" />
+        <a href="sq"> <img class="h2" src="{{url_for('static', filename='css/anonyme.png')}}" /> <br/>
+          <!-- <span class="n">nom: <br>
+                prenom:
+            </span> -->
+        </a>
+            <!-- <p class="n">
+                nom: <br>
+                prenom:
+            </p> -->
+        <marquee behavior="scroll" direction="bienvenue">
+            <p style="text-align: center" class="tete">
+            <font size=5>
+                 <b>Bienvenue à la Sonatel Academy</b></p>
+            </font>
+            </marquee>
+        </div>
+
+        
+        <div class="menu1">
+
+            <ul id="menu-accordeon">
+                <li><a href="{{url_for('acueil')}}">ACCUEIL</a></li>
+                <li><a h
+                margin-left: 500px;ref="#">SCOLARITE</a>
+                    <ul>
+                        <li><a href="liste_apprenant">Liste des apprenants</a></li>
+                        <li><a href="{{url_for('new_app')}}">Inscription</a></li>
+                        <li><a href="{{url_for('apprenant')}}">Modifier</a></li>
+                        <li><a href="{{url_for('annuler')}}">Annuler</a></li>
+                        <li><a href="{{url_for('suspendre')}}">Suspendre</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">REFERENTIEL</a>
+                    <ul>
+                        <li><a href="{{url_for('liste')}}">Liste des référentiels</a></li>
+                        <li><a href="{{url_for('new_ref')}}">Nouveau</a></li>
+                        <li><a href="{{url_for('referentiel')}}">Modifier</a></li>
+
+                    </ul>
+                </li>
+                <li><a href="#">PROMOTION</a>
+                    <ul>
+                        <li><a href="{{url_for('liste_promo')}}">Liste des promotions</a></li>
+                        <li><a href="{{url_for('new_prom')}}">Nouveau</a></li>
+                        <li><a href="{{url_for('promotion')}}">Modifier</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div> 
+
+
+
+ <!--fin menu déroulant-->
+
+
+                {% block content  %} {% endblock content%}
+
+
+ <!--pied de page-->
+
+
+        <!-- Note en bas de page -->
+
+        <footer>
+             Copyright &copy - Sonatel Academy 2019
+
+                                    <!-- Lien entre le site et les reseaux sociaux -->
+                        
+            <!-- Add icon library -->
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+            <!-- Add font awesome icons -->
+                <a href="#" class="fa fa-facebook"></a>
+                <a href="#" class="fa fa-twitter"></a>
+                <p class="contact"></p>
+        </footer>
+
+
+
+
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+        <script src = "https://code.jquery.com/jquery-3.3.1.slim.min.js" intégrité = "SHA384-Q8i / X + 965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH + 8abtTE1Pi6jizo" crossorigin = "anonymous" > </script>
+        <script type="text/javascript" src = "{{url_for('static', filename='css/bootstrap-4.2.1-dist/js/jquery-3.4.1.min.js')}}" > </script>
+        <script type="text/javascript" src = "{{url_for('static', filename='css/bootstrap-4.2.1-dist/js/bootstrap.min.js')}}" > </script>
+       
+        <script src = "https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" intégrité = "SHA384-ChfqqxuZUCnJSK3 + MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW / JmZQ5stwEULTy" crossorigin = "anonymous" > </script>
+        
+    </body>
+</html>
+
+
+
+

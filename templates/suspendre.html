@@ -1,0 +1,210 @@
+{% extends 'general.html' %}
+
+
+{%block content%}
+    <div class="well text-center">
+        <h1>LISTE DES APPRENANTS</h1>
+    </div>
+    <div class="container">
+        
+        <div class="row">
+            <div class="col md-12">
+
+                    {%with messages = get_flashed_messages() %}
+
+                    {%if messages%}
+                    {%for message in messages%}
+                    <div class="alert alert-success alert-dismissable" role="alert">
+
+                        <button type="button" class="close" data-dismiss="alert" aria-label="close">
+                            <span aria-hidden="true">x</span>
+                        </button>
+
+                        {{message}}
+                    </div>
+        
+                    
+                    {%endfor%}
+                    {%endif%}
+                    {%endwith%} 
+                <h4> Liste apprenant <button type="button" class="btn btn-success pull-right " data-toggle="modal" data-target="#mymodal">
+                    Ajouter un apprenant</button> </h4>
+                <table class="table table-striped">
+                   
+                  
+                    <tr>
+                        <th>id</th>
+                        <th>matricule</th>
+                        <th>prenom</th>
+                        <th>nom</th>
+                        <th>téléphone</th>
+                        <th>email</th>
+                        <th>statut</th>
+                        <th>promotion</th>
+                        <th>action</th>
+                        
+                    </tr>
+                    {% for row in apprenant %}
+                    <tr>
+                        <td>{{row.0}}</td>
+                        <td>{{row.1}}</td>
+                        <td>{{row.2}}</td>
+                        <td>{{row.3}}</td>
+                        <td>{{row.4}}</td>
+                        <td>{{row.5}}</td>
+                        <td>{{row.6}}</td>
+                        <td>{{row.7}}</td>
+                        
+                        <td>
+                            <a href="/update/{{row.0}}" class="btn btn-warning btn-xs" data-toggle="modal" data-target="#modaledit{{row.0}}">suspendre</a>
+                            <!-- <a href="" class="btn btn-danger"btn-xs onclick="return confirm('etes vous sur de vouloire supprimer ?')" > supprimer</a> -->
+                        </td>
+                    </tr>
+                    {%endfor%}
+
+ 
+                </table>
+            </div>
+        </div>
+        
+        <div id="mymodal" class="modal fade" role="dialog">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+
+                        <h4 class="modal-title"> SVP remplissez les champs </h4>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+
+                    <div class="modal-body">
+                        <form action="{{url_for('apprenant')}}" method="POST">
+                            <div class="form-group">
+                                <label> matricule</label>
+                                <input type="text" class="form-control" name="matricule" required="1">
+                            </div>
+
+                            <div class="form-group">
+                                    <label> prenom</label>
+                                    <input type="text" class="form-control" name="prenom" required="1">
+                            </div>
+                            <div class="form-group">
+                                    <label> nom</label>
+                                    <input type="text" class="form-control" name="nom" required="1">
+                            </div>
+                            <div class="form-group">
+                                <label> téléphone</label>
+                                <input type="tel" class="form-control" name="phon" required="1">
+                            </div>
+                            <div class="form-group">
+                                <label> email</label>
+                                <input type="email" class="form-control" name="email" required="1">
+                            </div>
+                            <div class="form-group">
+                                <label> statut</label>
+                                <input type="text" class="form-control" name="statut" required="1">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="promotion" > promotion</label>
+                                <select name="nom_promo">
+                                {%for promm in promotion%}
+                                <option value="{{promm[0]}}">{{promm[1]}}</option>
+                                {%endfor%}
+                                </select>
+                            </div>
+
+
+                            <div class="form-group">
+                                    <button class="btn btn-primary" type="submit">ajouter</button>
+                            </div>
+                        </form>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">close</button>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+{% for row in apprenant %}
+        <div id="modaledit{{row.0}}" class="modal fade" role="dialog">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+
+                        <h4 class="modal-title"> SVP modifier les champs </h4>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        
+                    </div>
+                    <div class="modal-body">
+                         <form action="{{url_for('suspendre')}}" method="POST">
+
+                            <div class="form-group">
+                                <label> matricule:</label>
+                                    <input type="hidden" class="form-control" name="id_app" value="{{row.0}}">
+                                    <input type="text" class="form-control" name="matricule" value="{{row.1}}">
+                                            
+                                            <!-- <input type="text" class="form-control" name="nom_promo" value="{{row.1}}"> -->
+                            </div>
+                            <div class="form-group">
+                                <label> prenom:</label>
+                                <input type="text" class="form-control" name="prenom" value="{{row.2}}">
+                                            <!-- <input type="text" class="form-control" name="prenom" value="prenom"> -->
+                            </div>
+                            <div class="form-group">
+                                <label> nom:</label>
+                                <input type="text" class="form-control" name="nom" value="{{row.3}}">
+                                            <!-- <input type="text" class="form-control" name="nom" value="nom"> -->
+                            </div>
+                                    <div class="form-group">
+                                        <label> téléphone:</label>
+                                        <input type="text" class="form-control" name="phon" value="{{row.4}}">
+                                        <!-- <input type="text" class="form-control" name="phon" value="phon"> -->
+                                    </div>
+                            <div class="form-group">
+                                <label> email:</label>
+                                <input type="email" class="form-control" name="email" value="{{row.5}}">
+                                        <!-- <input type="email" class="form-control" name="email" value="email"> -->
+                            </div>
+                            <div class="form-group">
+                                <label> statut:</label>
+                                <input type="text" class="form-control" name="statut" value="{{row.6}}">
+                                        <!-- <input type="email" class="form-control" name="email" value="email"> -->
+                            </div>
+
+
+                                    
+
+
+                            <div class="form-group">
+                                <label for="promotion" > promotion</label>
+                                <select name="nom_promo">
+                                    {%for promm in promotion%}
+                                        <option value="{{promm[0]}}">{{promm[1]}}</option>
+                                    {%endfor%}
+                                </select>
+                                    </div>
+        
+    
+                                <div class="form-group">
+                                        <button class="btn btn-primary" type="submit">modifier</button>
+                                </div>
+                            </form>
+                        </div>
+    
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">fermer</button>
+                        </div>
+    
+                    </div>
+                </div>
+    
+            </div>
+
+
+{% endfor %}
+    </div>
+{% endblock content %}

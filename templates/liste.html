@@ -1,0 +1,26 @@
+{% extends 'general.html' %}
+
+
+{%block content%}
+    <div class="well text-center">
+        <h1>LISTE DES REFERENTIELS</h1>
+    </div>
+    <div class="container">       
+        <div class="row">
+            <div class="col md-12">
+                <table class="table table-striped">
+                    <tr>
+                        <th>id</th>
+                        <th>nom referentiel</th>
+                    </tr>
+                    {% for row in dat%}
+                        <tr>
+                            <td>{{row.0}}</td>
+                            <td>{{row.1}}</td>     
+                        </tr>
+                    {% endfor %}  
+                </table>    
+            </div>           
+        </div>      
+    </div>
+{% endblock content %}
